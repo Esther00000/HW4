@@ -369,7 +369,7 @@
             2. 觸發 元件的 $emit 方法並代入參數
             -->
             <li class="page-item" :class="{ disabled : !pages.has_pre}">
-              <a class="page-link" href="#" aria-label="Previous" @click="paginate(pages.current_page - 1)">
+              <a class="page-link" href="#" aria-label="Previous" @click.prevent="paginate(pages.current_page - 1)">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
@@ -383,7 +383,7 @@
               :key="page+'page'"
               :class="{active : page === pages.current_page}"
             >
-              <a class="page-link" href="#" @click="paginate(page)">{{page}}</a>
+              <a class="page-link" href="#" @click.prevent="paginate(page)">{{page}}</a>
             </li>
 
             <!-- 下一頁
@@ -391,7 +391,7 @@
              2. 觸發 元件的 $emit 方法並代入參數
             -->
             <li class="page-item" :class="{ disabled : !pages.has_next}">
-              <a class="page-link" href="#" aria-label="Next" @click="paginate(pages.current_page + 1)">
+              <a class="page-link" href="#" aria-label="Next" @click.prevent="paginate(pages.current_page + 1)">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
