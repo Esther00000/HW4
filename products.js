@@ -1,5 +1,7 @@
 import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
 
+import pagination from './pagination.js';
+
 let productModal;
 let delProductModal;
 
@@ -144,7 +146,8 @@ const app = createApp({
 	    axios.defaults.headers.common["Authorization"] = token;
         // 確認是否登入
         this.checkAdmin();
-      }
+    },
+    components : {pagination}
 })
 
 //新增/編輯元件
@@ -170,14 +173,16 @@ app.component('del-product-modal',{
 })
 
 //分頁元件
-app.component('pagination',{
-    template : '#pagination',
-    props : ['pages'],
-    methods : {
-        paginate(target_page){
-            this.$emit('paginated',target_page)
-        }
-    }
-})
+// app.component('pagination',{
+//     template : '#pagination',
+//     props : ['pages'],
+//     methods : {
+//         paginate(target_page){
+//             this.$emit('paginated',target_page)
+//         }
+//     }
+// })
+
+
 
 app.mount('#app');
